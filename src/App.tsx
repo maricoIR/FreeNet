@@ -39,7 +39,7 @@ export default function App() {
   }, [search]);
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-sand-300 dark:bg-coffee-950 transition-colors duration-300 bg-dot-pattern">
+    <div className="h-screen flex flex-col overflow-hidden app-bg">
       <Navbar darkMode={dark} onToggleDark={toggle} />
       <SearchBar value={search} onChange={setSearch} />
 

@@ -37,11 +37,11 @@ export default function SupportModal({ onClose }: SupportModalProps) {
             <h2 className="font-bold text-base text-coffee-800 dark:text-sand-100 mb-2">
               از سازندگان حمایت کنید
             </h2>
-            <p className="text-sm text-coffee-600 dark:text-coffee-500 leading-7">
+            <p className="text-sm text-coffee-600 dark:text-sand-200/80 leading-7">
               تمام روش‌هایی که در این مجموعه مشاهده می‌کنید توسط افراد دلسوز و زحمتکش جامعه ایرانی
               تهیه، آموزش داده و به‌رایگان به اشتراک گذاشته شده‌اند.
             </p>
-            <p className="text-sm text-coffee-600 dark:text-coffee-500 leading-7 mt-2">
+            <p className="text-sm text-coffee-600 dark:text-sand-200/80 leading-7 mt-2">
               اگر این محتوا برایتان مفید بوده، لطفاً از سازندگان حمایت کنید تا انگیزه‌شان برای ادامه
               کار حفظ شود.
             </p>

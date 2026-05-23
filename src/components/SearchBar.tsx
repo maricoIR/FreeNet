@@ -12,7 +12,7 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
         <div className="relative">
           <FiSearch
             size={16}
-            className="absolute right-3.5 top-1/2 -translate-y-1/2 text-coffee-500 dark:text-coffee-500 pointer-events-none"
+            className="absolute right-3.5 top-1/2 -translate-y-1/2 text-coffee-500 dark:text-sand-300/60 pointer-events-none"
           />
           <input
             type="text"
@@ -24,7 +24,7 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
               bg-sand-50 dark:bg-coffee-800
               border border-sand-300 dark:border-coffee-700
               text-coffee-800 dark:text-sand-100
-              placeholder:text-coffee-500/60 dark:placeholder:text-coffee-600
+              placeholder:text-coffee-500/60 dark:placeholder:text-sand-300/40
               focus:outline-none focus:ring-2 focus:ring-orange-400/30 focus:border-orange-400/70
               dark:focus:ring-orange-900/40 dark:focus:border-orange-800/60
               transition-all duration-200 shadow-sm shadow-coffee-900/10

@@ -67,14 +67,14 @@ export default function MethodAccordion({ method }: MethodAccordionProps) {
             </div>
 
             {method.credits.length > 0 && (
-              <div className="rounded-xl border border-orange-200 dark:border-orange-900/50 bg-orange-50 dark:bg-orange-950/20 px-4 py-3">
+              <div className="rounded-xl border border-orange-200 dark:border-coffee-600/60 bg-orange-50 dark:bg-coffee-700/30 px-4 py-3">
                 <div className="flex items-center justify-between mb-2.5">
-                  <h3 className="text-xs font-semibold text-orange-600/80 dark:text-orange-500/80">
+                  <h3 className="text-xs font-semibold text-orange-600/80 dark:text-sand-300/70">
                     صاحبین اثر
                   </h3>
                   <button
                     onClick={() => setModalOpen(true)}
-                    className="flex items-center gap-1 text-orange-400 dark:text-orange-600 hover:text-orange-600 dark:hover:text-orange-400 transition-colors cursor-pointer"
+                    className="flex items-center gap-1 text-orange-400 dark:text-sand-300/50 hover:text-orange-600 dark:hover:text-sand-200 transition-colors cursor-pointer"
                     aria-label="اطلاعات بیشتر">
                     <FiInfo size={15} />
                   </button>
@@ -87,13 +87,13 @@ export default function MethodAccordion({ method }: MethodAccordionProps) {
                         href={credit.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1.5 rounded-lg text-sm bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 hover:bg-orange-200 dark:hover:bg-orange-800/40 border border-orange-200 dark:border-orange-800/40 transition-colors font-medium cursor-pointer">
+                        className="px-3 py-1.5 rounded-lg text-sm bg-orange-100 dark:bg-coffee-600/40 text-orange-700 dark:text-sand-200 hover:bg-orange-200 dark:hover:bg-coffee-600/60 border border-orange-200 dark:border-coffee-600/50 transition-colors font-medium cursor-pointer">
                         {credit.name}
                       </a>
                     ) : (
                       <span
                         key={i}
-                        className="px-3 py-1.5 rounded-lg text-sm bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-800/40">
+                        className="px-3 py-1.5 rounded-lg text-sm bg-orange-100 dark:bg-coffee-600/40 text-orange-700 dark:text-sand-200 border border-orange-200 dark:border-coffee-600/50">
                         {credit.name}
                       </span>
                     ),
