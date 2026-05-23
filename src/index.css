@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Vazirmatn', sans-serif;
+
+  /* True warm brown — R:G:B stay in ~1 : 0.7 : 0.45 ratio, no red spike */
+  --color-coffee-950: #171008;
+  --color-coffee-900: #231810;
+  --color-coffee-800: #332416;
+  --color-coffee-700: #44301e;
+  --color-coffee-600: #5f4529;
+  --color-coffee-500: #7d5c38;
+
+  /* Warm sandy tans for light mode */
+  --color-sand-400: #c4a47a;
+  --color-sand-300: #d4b88e;
+  --color-sand-200: #e8d4b4;
+  --color-sand-100: #f4e8d4;
+  --color-sand-50:  #fdf6ec;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c4a47a;
+    border-radius: 999px;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #44301e;
+    border-radius: 999px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, rgba(196, 164, 122, 0.35) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  .dark .bg-dot-pattern {
+    background-image: radial-gradient(circle, rgba(68, 48, 30, 0.6) 1px, transparent 1px);
+  }
+}
