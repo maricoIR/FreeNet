@@ -49,7 +49,7 @@ export default function SupportModal({ onClose }: SupportModalProps) {
 
           <button
             onClick={onClose}
-            className="w-full py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium transition-colors">
+            className="w-full cursor-pointer py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium transition-colors">
             متوجه شدم، ممنون
           </button>
         </div>
