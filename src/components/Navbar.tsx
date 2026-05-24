@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { FiSun, FiMoon, FiInfo } from 'react-icons/fi';
-import { HiWifi } from 'react-icons/hi';
-import AboutModal from './AboutModal';
+import { useState } from "react";
+import { FiSun, FiMoon, FiInfo } from "react-icons/fi";
+import { HiWifi } from "react-icons/hi";
+import AboutModal from "./AboutModal";
 
 interface NavbarProps {
   darkMode: boolean;
@@ -21,7 +21,7 @@ export default function Navbar({ darkMode, onToggleDark }: NavbarProps) {
             </div>
             <div className="leading-tight">
               <span className="font-bold text-base bg-gradient-to-l from-orange-600 to-amber-700 bg-clip-text text-transparent">
-                فری‌نت
+                FreeNet
               </span>
               <p className="hidden sm:block text-xs text-coffee-600 dark:text-sand-300/50 font-normal">
                 راهنمای اینترنت آزاد
@@ -33,16 +33,14 @@ export default function Navbar({ darkMode, onToggleDark }: NavbarProps) {
             <button
               onClick={() => setAboutOpen(true)}
               aria-label="درباره پروژه"
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 bg-sand-100/80 dark:bg-coffee-800 hover:bg-sand-50 dark:hover:bg-coffee-700 text-coffee-700 dark:text-sand-200 border border-sand-400/50 dark:border-coffee-700 cursor-pointer"
-            >
+              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 bg-sand-100/80 dark:bg-coffee-800 hover:bg-sand-50 dark:hover:bg-coffee-700 text-coffee-700 dark:text-sand-200 border border-sand-400/50 dark:border-coffee-700 cursor-pointer">
               <FiInfo size={16} />
             </button>
 
             <button
               onClick={onToggleDark}
               aria-label="تغییر پوسته"
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 bg-sand-100/80 dark:bg-coffee-800 hover:bg-sand-50 dark:hover:bg-coffee-700 text-coffee-700 dark:text-sand-200 border border-sand-400/50 dark:border-coffee-700 cursor-pointer"
-            >
+              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 bg-sand-100/80 dark:bg-coffee-800 hover:bg-sand-50 dark:hover:bg-coffee-700 text-coffee-700 dark:text-sand-200 border border-sand-400/50 dark:border-coffee-700 cursor-pointer">
               {darkMode ? <FiSun size={16} /> : <FiMoon size={16} />}
             </button>
           </div>

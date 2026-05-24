@@ -36,7 +36,11 @@ export default function ContactModal({ onClose }: ContactModalProps) {
       if (!res.ok) {
         const text = await res.text();
         let msg = "خطای ناشناخته";
-        try { msg = JSON.parse(text).error ?? msg; } catch { /* non-JSON response */ }
+        try {
+          msg = JSON.parse(text).error ?? msg;
+        } catch {
+          /* non-JSON response */
+        }
         throw new Error(msg);
       }
 
@@ -71,7 +75,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
                 ممنون از پیام شما
               </h2>
               <p className="text-sm text-coffee-600 dark:text-sand-200/80 leading-7">
-                پیشنهاد یا انتقاد شما با موفقیت ثبت شد. از مشارکت‌تان سپاسگزاریم.
+                پیشنهاد یا انتقاد شما با موفقیت ثبت شد. از مشارکت شما سپاسگزاریم.
               </p>
             </div>
             <button
