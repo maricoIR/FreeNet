@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar";
 // import FilterChips from './components/FilterChips';
 import MethodAccordion from "./components/MethodAccordion";
 import Footer from "./components/Footer";
+import ContactModal from "./components/ContactModal";
 
 function useDarkMode() {
   const [dark, setDark] = useState<boolean>(() => {
@@ -28,6 +29,7 @@ function useDarkMode() {
 export default function App() {
   const { dark, toggle } = useDarkMode();
   const [search, setSearch] = useState("");
+  const [contactOpen, setContactOpen] = useState(false);
 
   const filtered = useMemo(() => {
     if (!search.trim()) return methods;
@@ -72,7 +74,8 @@ export default function App() {
         </div>
       </main>
 
-      <Footer />
+      <Footer onContribute={() => setContactOpen(true)} />
+      {contactOpen && <ContactModal onClose={() => setContactOpen(false)} />}
     </div>
   );
 }
