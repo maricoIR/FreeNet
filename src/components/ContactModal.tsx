@@ -34,8 +34,10 @@ export default function ContactModal({ onClose }: ContactModalProps) {
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error ?? "خطای ناشناخته");
+        const text = await res.text();
+        let msg = "خطای ناشناخته";
+        try { msg = JSON.parse(text).error ?? msg; } catch { /* non-JSON response */ }
+        throw new Error(msg);
       }
 
       setStatus("success");
@@ -46,21 +48,16 @@ export default function ContactModal({ onClose }: ContactModalProps) {
   }
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center px-4"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-4" onClick={onClose}>
       <div className="absolute inset-0 bg-coffee-950/60 backdrop-blur-sm" />
 
       <div
-        className="relative w-full max-w-sm rounded-2xl border border-orange-200 dark:border-coffee-600 bg-sand-50 dark:bg-coffee-800 shadow-xl shadow-coffee-950/30 p-6"
-        onClick={(e) => e.stopPropagation()}
-      >
+        className="relative w-full max-w-lg rounded-2xl border border-orange-200 dark:border-coffee-600 bg-sand-50 dark:bg-coffee-800 shadow-xl shadow-coffee-950/30 p-6"
+        onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
           className="absolute left-4 top-4 w-7 h-7 rounded-lg flex items-center justify-center text-coffee-500 dark:text-sand-300/50 hover:bg-orange-100 dark:hover:bg-coffee-700 transition-colors cursor-pointer"
-          aria-label="بستن"
-        >
+          aria-label="بستن">
           <FiX size={16} />
         </button>
 
@@ -79,8 +76,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
             </div>
             <button
               onClick={onClose}
-              className="w-full cursor-pointer py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium transition-colors"
-            >
+              className="w-full cursor-pointer py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium transition-colors">
               بستن
             </button>
           </div>
@@ -94,6 +90,11 @@ export default function ContactModal({ onClose }: ContactModalProps) {
                 پیشنهادات و انتقادات
               </h2>
             </div>
+
+            <p className="text-sm text-coffee-600 dark:text-sand-200/80 leading-7 border-t border-orange-100 dark:border-coffee-700 pt-3">
+              پیشنهادات و انتقادات شما به ما کمک می‌کند تا این پروژه را بهبود بدیم و اینترنت آزاد را
+              در دسترس افراد بیشتری قرار دهیم. هر ایده‌ای، هر چقدر هم کوچک، برای ما ارزشمند است.
+            </p>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div className="flex flex-col gap-1">
@@ -132,15 +133,13 @@ export default function ContactModal({ onClose }: ContactModalProps) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 cursor-pointer py-2.5 rounded-xl border border-orange-200 dark:border-coffee-600 text-coffee-600 dark:text-sand-300 text-sm font-medium hover:bg-orange-50 dark:hover:bg-coffee-700 transition-colors"
-                >
+                  className="flex-1 cursor-pointer py-2.5 rounded-xl border border-orange-200 dark:border-coffee-600 text-coffee-600 dark:text-sand-300 text-sm font-medium hover:bg-orange-50 dark:hover:bg-coffee-700 transition-colors">
                   انصراف
                 </button>
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="flex-1 cursor-pointer py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
-                >
+                  className="flex-1 cursor-pointer py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors">
                   {status === "loading" ? "در حال ارسال..." : "ارسال"}
                 </button>
               </div>

@@ -1,9 +1,7 @@
 import { neon } from "@neondatabase/serverless";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const sql = neon(process.env.DATABASE_URL!);
-
-async function ensureTable() {
+async function ensureTable(sql: ReturnType<typeof neon>) {
   await sql`
     CREATE TABLE IF NOT EXISTS contacts (
       id         SERIAL PRIMARY KEY,
@@ -15,7 +13,12 @@ async function ensureTable() {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  await ensureTable();
+  const connectionString = process.env.DATABASE_URL ?? process.env.FREENET_DATABASE_URL;
+  if (!connectionString) {
+    return res.status(500).json({ error: "Database connection string is not configured" });
+  }
+  const sql = neon(connectionString);
+  await ensureTable(sql);
 
   if (req.method === "POST") {
     const { name, message } = req.body ?? {};
